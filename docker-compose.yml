@@ -1,0 +1,25 @@
+# docker exec $(docker ps -lq) /bin/bash -c "wp db import /data/database.sql --allow-root"
+
+version: '2'
+services:
+    database:
+        container_name: odyssey-mysql
+        image: mysql:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=123
+            - MYSQL_DATABASE=translation-odyssey
+            - MYSQL_USER=admin
+            - MYSQL_PASSWORD=123
+    webserver:
+        container_name: odyssey-webserver
+        build:
+            context: .
+            dockerfile: .docker/webserver/Dockerfile
+        volumes:
+            - .:/var/www/odyssey
+        links:
+            - database
+        depends_on:
+            - database
+        ports:
+            - "80:80"
