@@ -8,7 +8,10 @@ WORKDIR /var/www/odyssey
 # Composer requires zip and git. (https://getcomposer.org/doc/00-intro.md#system-requirements)
 RUN apt-get update && \
     apt-get install git unzip npm -y && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    mv wp-cli.phar /usr/local/bin/wp && \
+    chmod +x /usr/local/bin/wp
 
 # Some required Node.js packages expects 
 # nodejs command to be node.
@@ -23,9 +26,6 @@ RUN echo "Include apache2.inc.conf" >> /etc/apache2/apache2.conf
 
 RUN a2enmod rewrite && \
     apache2ctl restart
-
-# Composer
-# RUN composer install --no-interaction
 
 # Exec.
 EXPOSE 80
