@@ -1,7 +1,6 @@
 {
     "description": "Translation Odyssey",
     "require": {
-        "php": ">=5.5",
-        "wp-cli": "*"
+        "php": ">=5.5"
     }
 }

@@ -10,6 +10,8 @@ services:
             - MYSQL_DATABASE=translation-odyssey
             - MYSQL_USER=admin
             - MYSQL_PASSWORD=123
+        ports:
+            - "3306:3306"
     webserver:
         container_name: odyssey-webserver
         build:

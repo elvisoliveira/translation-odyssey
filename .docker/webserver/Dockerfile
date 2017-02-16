@@ -7,11 +7,19 @@ WORKDIR /var/www/odyssey
 # Enviroment Dependencies:
 # Composer requires zip and git. (https://getcomposer.org/doc/00-intro.md#system-requirements)
 RUN apt-get update && \
-    apt-get install git unzip npm -y && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    apt-get install git unzip npm mysql-client -y && \
+    docker-php-ext-install mysqli
+
+# Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# WP CLI
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp && \
     chmod +x /usr/local/bin/wp
+
+# MySQL
+RUN docker-php-ext-install mysqli
 
 # Some required Node.js packages expects 
 # nodejs command to be node.
