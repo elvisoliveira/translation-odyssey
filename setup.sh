@@ -1,8 +1,8 @@
 #!/bin/bash
 # docker exec odyssey-webserver /bin/sh -c "/var/www/odyssey/setup.sh"
 
-# Database
-
+# WordPress Download
+wp --allow-root core download --locale=pt_BR
 
 # WordPress Config
 wp --allow-root core config --dbhost=database \
@@ -11,7 +11,7 @@ wp --allow-root core config --dbhost=database \
                             --dbpass=123
 
 # WordPress Install
-wp --allow-root core install --url=http://localhost/ \
+wp --allow-root core install --url=http://webserver/ \
                              --title='Translation Odyssey' \
                              --admin_user=admin \
                              --admin_password=123 \
