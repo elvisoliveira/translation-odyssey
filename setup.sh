@@ -15,8 +15,9 @@ if [ ! -f "wp-config.php" ]; then
 fi
 
 # WordPress Install
-wp --allow-root core install --url=http://webserver/ \
+wp --allow-root core install --url=http://wordpress/ \
                              --title='Translation Odyssey' \
                              --admin_user=admin \
                              --admin_password=123 \
                              --admin_email=elvis.olv@gmail.com
+                             --skip-email # Avoid postmail: 'sh: 1: -t: not found'
