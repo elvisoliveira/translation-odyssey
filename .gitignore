@@ -8,3 +8,9 @@
 !composer.json
 !socker-compose.yml
 !setup.sh
+
+# WordPress Theme
+!/wp-content
+!/wp-content/themes
+!/wp-content/themes/odyssey
+!/wp-content/themes/odyssey/**
