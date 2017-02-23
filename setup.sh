@@ -19,5 +19,8 @@ wp --allow-root core install --url=http://wordpress/ \
                              --title='Translation Odyssey' \
                              --admin_user=admin \
                              --admin_password=123 \
-                             --admin_email=elvis.olv@gmail.com
+                             --admin_email=elvis.olv@gmail.com \
                              --skip-email # Avoid postmail: 'sh: 1: -t: not found'
+
+# WordPress: Switch Theme
+wp --allow-root theme activate odyssey
