@@ -1,31 +1,19 @@
 <?php get_header(); ?>
-
-<?php if (have_posts()): ?>
-
-    <?php if (is_home() && ! is_front_page()): ?>
-        <h1><?php single_post_title(); ?></h1>
-    <?php endif; ?>
-
-    <?php while (have_posts()): ?>
-        <?php the_post(); ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <header class="entry-header">
-                <?php
-                    if ( is_single() ) :
-                        the_title( '<h1 class="entry-title">', '</h1>' );
-                    else :
-                        the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-                    endif;
-                ?>
-            </header>
-            <div class="entry-content">
-                <?php the_content(); ?>
-            </div>
-        </article>
-    <?php endwhile; ?>
-
-<?php else: ?>
-    <?php get_template_part('content', 'none'); ?>
-<?php endif; ?>
-
+<div class="row">
+    <div class="blog-main">
+        <?php if (have_posts()) : ?>
+            <?php while (have_posts()): ?> 
+                <?php the_post(); ?>
+                <?php get_template_part('content', get_post_format()); ?>
+            <?php endwhile; ?>
+            <nav>
+                <ul class="pager">
+                    <li><?php next_posts_link('Previous'); ?></li>
+                    <li><?php previous_posts_link('Next'); ?></li>
+                </ul>
+            </nav>
+        <?php endif; ?>
+    </div>
+    <?php get_sidebar(); ?>
+</div>
 <?php get_footer(); ?>
