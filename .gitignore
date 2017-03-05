@@ -4,13 +4,20 @@
 # Except for:
 !.gitignore
 !.gitattributes
-!.docker
 !composer.json
 !socker-compose.yml
 !setup.sh
+!.docker
+!.docker/**
 
 # WordPress Theme
 !/wp-content
 !/wp-content/themes
 !/wp-content/themes/odyssey
-!/wp-content/themes/odyssey/**
+!/wp-content/themes/odyssey/*
+!/wp-content/themes/odyssey/assets
+!/wp-content/themes/odyssey/assets/*
+!/wp-content/themes/odyssey/scripts
+!/wp-content/themes/odyssey/scripts/*
+!/wp-content/themes/odyssey/styles
+!/wp-content/themes/odyssey/styles/*

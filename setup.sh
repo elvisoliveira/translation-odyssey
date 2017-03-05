@@ -22,5 +22,15 @@ wp --allow-root core install --url=http://wordpress/ \
                              --admin_email=elvis.olv@gmail.com \
                              --skip-email # Avoid postmail: 'sh: 1: -t: not found'
 
-# WordPress: Switch Theme
+# WordPress: Switch theme.
 wp --allow-root theme activate odyssey
+
+# WordPress: Delete default post.
+wp --allow-root post delete 1 --force # Blog post
+wp --allow-root post delete 2 --force # Page
+
+# WordPress: Create pages.
+wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Equipe'
+wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Servi&ccedil;os'
+wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Blog'
+wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Contato'

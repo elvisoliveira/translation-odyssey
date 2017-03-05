@@ -1,0 +1,14 @@
+{
+    "name": "TranslationOdyssey",
+    "authors": [
+        "Elvis Oliveira <elvis.olv@gmail.com>"
+    ],
+    "description": "",
+    "main": "",
+    "license": "MIT",
+    "homepage": "",
+    "private": true,
+    "dependencies": {
+        "font-awesome": "^3.2.1"
+    }
+}

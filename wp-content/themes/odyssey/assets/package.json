@@ -1,0 +1,22 @@
+{
+    "name": "TranslationOdyssey",
+    "version": "1.0.0",
+    "description": "",
+    "author": "Elvis Oliveira <elvis.olv@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "bower": "^1.8.0",
+        "grunt": "^1.0.1",
+        "grunt-contrib-copy": "^1.0.0"
+    },
+    "dependencies": {
+        "jquery": "^1.12.4"
+    },
+    "scripts": {
+        "assets": "npm update --no-bin-links && node_modules/bower/bin/bower update && node_modules/grunt/bin/grunt"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/elvisoliveira/translation-odyssey.git"
+    }
+}
