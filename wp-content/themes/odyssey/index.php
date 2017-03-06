@@ -13,8 +13,30 @@
         <?php wp_head(); ?>
     </head>
     <body>
-        <div class="head">
+        <div class="header">
             <?php get_header(); ?>
+        </div>
+        <div class="navigation">
+            <div class="inner">
+                <ul>
+                    <?php wp_list_pages('&title_li='); ?>
+                </ul>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="info">
+                <h1 class="blog-title">
+                    <a href="<?php bloginfo('wpurl'); ?>"><?php print get_bloginfo('name'); ?></a>
+                </h1>
+                <h2 class="blog-descr">
+                    <?php print get_theme_mod('slogan_setting', 'Are you looking for a reliable translation Company? You have just found one!'); ?>
+                </h2>    
+            </div>
+            <div class="images">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
         </div>
         <div class="body">
             <div class="post">
@@ -23,10 +45,10 @@
                         <?php while (have_posts()): ?> 
                             <li>
                                 <div class="post">
-                                    <?php the_post(); ?>    
+                                    <?php the_post(); ?>
                                 </div>
                                 <div class="temp">
-                                    <?php get_template_part('content', get_post_format()); ?>    
+                                    <?php get_template_part('content', get_post_format()); ?>
                                 </div>
                             </li>
                         <?php endwhile; ?>

@@ -1,0 +1,32 @@
+div.header {
+    float: left;
+    width: 100%;
+    background-color: #333232;
+    height: 45px;
+}
+div.header div.inner {
+    width: 1022px;
+    margin-left: -511px;
+    position: relative;
+    left: 50%;
+    height: 45px;
+}
+div.header div.inner ul {
+    float: left;
+    height: 45px;
+}
+div.header div.inner ul li {
+    float: left;
+    color: #FFF;
+    list-style: none;
+    height: 45px;
+}
+div.header div.inner ul li a {}
+div.header div.inner ul li span {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+}
+div.header div.inner ul li dl {}
+div.header div.inner ul li dl dt {}
+div.header div.inner ul li dl dd {}

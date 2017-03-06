@@ -3,8 +3,15 @@
 // Scripts and Styles
 function odyssey_scripts()
 {
-    wp_enqueue_style('blog', get_template_directory_uri() . '/css/blog.css');
-    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);
+    // CSS: Main
+    wp_enqueue_style('base', get_template_directory_uri() . '/styles/base.css');
+    wp_enqueue_style('home', get_template_directory_uri() . '/styles/home.css');
+
+    // CSS: Font Awesome
+    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css');
+
+    // JS
+    wp_enqueue_script('base', get_template_directory_uri() . '/scripts/base.js');
 }
 
 add_action('wp_enqueue_scripts', 'odyssey_scripts');
