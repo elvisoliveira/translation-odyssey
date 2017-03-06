@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
         copy: [{
                 files: [
@@ -6,13 +6,13 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'bower_components/font-awesome/',
                         src: ['**/*.css', '**/*.otf', '**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2'],
-                        dest: 'files/font-awesome/'
+                        dest: './../assets/font-awesome/'
                     },
                     {
                         expand: true,
                         cwd: 'node_modules/jquery/dist/',
                         src: ['jquery.js'],
-                        dest: 'files/jquery/'
+                        dest: './../assets/jquery/'
                     }
                 ]
             }]

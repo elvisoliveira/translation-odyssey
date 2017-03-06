@@ -1,6 +1,9 @@
 #!/bin/bash
 # docker exec odyssey-webserver /bin/sh -c "/var/www/odyssey/setup.sh"
 
+# Node.js resources
+(cd ./wp-content/themes/odyssey/node && npm run assets)
+
 # WordPress Download
 if [ ! -f "wp-settings.php" ]; then
     wp --allow-root core download --locale=pt_BR
@@ -15,7 +18,7 @@ if [ ! -f "wp-config.php" ]; then
 fi
 
 # WordPress Install
-wp --allow-root core install --url=http://wordpress/ \
+wp --allow-root core install --url=http://translation-odyssey/ \
                              --title='Translation Odyssey' \
                              --admin_user=admin \
                              --admin_password=123 \
@@ -26,8 +29,7 @@ wp --allow-root core install --url=http://wordpress/ \
 wp --allow-root theme activate odyssey
 
 # WordPress: Delete default post.
-wp --allow-root post delete 1 --force # Blog post
-wp --allow-root post delete 2 --force # Page
+wp --allow-root site empty --yes
 
 # WordPress: Create pages.
 wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Equipe'

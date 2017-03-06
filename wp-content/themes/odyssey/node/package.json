@@ -13,7 +13,7 @@
         "jquery": "^1.12.4"
     },
     "scripts": {
-        "assets": "npm update --no-bin-links && node_modules/bower/bin/bower update && node_modules/grunt/bin/grunt"
+        "assets": "npm update --no-bin-links && bower update && grunt"
     },
     "repository": {
         "type": "git",

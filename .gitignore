@@ -15,8 +15,8 @@
 !/wp-content/themes
 !/wp-content/themes/odyssey
 !/wp-content/themes/odyssey/*
-!/wp-content/themes/odyssey/assets
-!/wp-content/themes/odyssey/assets/*
+!/wp-content/themes/odyssey/node
+!/wp-content/themes/odyssey/node/*
 !/wp-content/themes/odyssey/scripts
 !/wp-content/themes/odyssey/scripts/*
 !/wp-content/themes/odyssey/styles

@@ -25,6 +25,9 @@ RUN docker-php-ext-install mysqli
 # nodejs command to be node.
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
+# Node.js 
+RUN npm install -g bower grunt
+
 # PHP / Apache Conf.
 COPY ./.docker/webserver/php.ini ${PHP_INI_DIR}/php.ini
 COPY ./.docker/webserver/apache2.conf ${APACHE_CONFDIR}/apache2.inc.conf
