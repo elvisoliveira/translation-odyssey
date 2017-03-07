@@ -3,6 +3,7 @@
 
 # Except for:
 !.gitignore
+!.env
 !.gitattributes
 !composer.json
 !socker-compose.yml
