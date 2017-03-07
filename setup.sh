@@ -6,7 +6,7 @@
 
 # WordPress Download
 if [ ! -f "wp-settings.php" ]; then
-    wp --allow-root core download --locale=pt_BR
+    wp --allow-root core download # --locale=pt_BR
 fi
 
 # WordPress Config
@@ -36,3 +36,12 @@ wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='pa
 wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Servi&ccedil;os'
 wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Blog'
 wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='page' --post_status='publish' --post_title='Contato'
+
+# WordPress: Home menu
+wp --allow-root menu create "Home"
+
+# WordPress: Home menu itens
+wp --allow-root menu item add-custom home 'Equipe' / --target=team
+wp --allow-root menu item add-custom home 'Servi&ccedil;os' / --target=services
+wp --allow-root menu item add-custom home 'Blog' / --target=blog
+wp --allow-root menu item add-custom home 'Contato' / --target=contact

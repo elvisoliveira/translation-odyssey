@@ -16,13 +16,6 @@
         <div class="header">
             <?php get_header(); ?>
         </div>
-        <div class="navigation">
-            <div class="inner">
-                <ul>
-                    <?php wp_list_pages('&title_li='); ?>
-                </ul>
-            </div>
-        </div>
         <div class="banner">
             <div class="info">
                 <h1 class="blog-title">
