@@ -1,5 +1,16 @@
 <?php
 
+// ACF
+define('ACF_LITE', TRUE);
+
+include_once('advanced-custom-fields.php');
+
+// Generated Post Types
+foreach (glob(dirname(__FILE__) . '/post-types/*.php') as $filename)
+{
+    include_once($filename);
+}
+
 // Scripts and Styles
 function odyssey_scripts()
 {

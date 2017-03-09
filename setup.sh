@@ -25,6 +25,9 @@ wp --allow-root core install --url=http://translation-odyssey/ \
                              --admin_email=elvis.olv@gmail.com \
                              --skip-email # Avoid postmail: 'sh: 1: -t: not found'
 
+# WordPress: ACF
+wp --allow-root plugin install advanced-custom-fields --activate
+
 # WordPress: Switch theme.
 wp --allow-root theme activate odyssey
 
@@ -41,7 +44,12 @@ wp --allow-root post create ./.docker/wordpress/post-content.txt --post_type='pa
 wp --allow-root menu create "Home"
 
 # WordPress: Home menu itens
-wp --allow-root menu item add-custom home 'Equipe' / --target=team
-wp --allow-root menu item add-custom home 'Servi&ccedil;os' / --target=services
 wp --allow-root menu item add-custom home 'Blog' / --target=blog
 wp --allow-root menu item add-custom home 'Contato' / --target=contact
+wp --allow-root menu item add-custom home 'Equipe' / --target=team
+wp --allow-root menu item add-custom home 'Servi&ccedil;os' / --target=services
+
+# WordPress: Post Type
+wp --allow-root scaffold post-type team --theme='odyssey' --label='Team Member' --dashicon='id-alt'
+wp --allow-root scaffold post-type banner --theme='odyssey' --label='Banner' --dashicon='images-alt'
+wp --allow-root scaffold post-type services --theme='odyssey' --label='Service' --dashicon='cart'
