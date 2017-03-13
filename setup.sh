@@ -17,6 +17,19 @@ if [ ! -f "wp-config.php" ]; then
                                 --dbpass=123
 fi
 
+# WordPress: Post Type
+if [ ! -f "wp-content/themes/odyssey/post-types/team.php" ]; then
+    wp --allow-root scaffold post-type team --theme='odyssey' --label='Team Member' --dashicon='id-alt'
+fi
+
+if [ ! -f "wp-content/themes/odyssey/post-types/banner.php" ]; then
+    wp --allow-root scaffold post-type banner --theme='odyssey' --label='Banner' --dashicon='images-alt'
+fi
+
+if [ ! -f "wp-content/themes/odyssey/post-types/services.php" ]; then
+    wp --allow-root scaffold post-type services --theme='odyssey' --label='Service' --dashicon='cart'
+fi
+
 # WordPress Install
 wp --allow-root core install --url=http://translation-odyssey/ \
                              --title='Translation Odyssey' \
@@ -48,8 +61,3 @@ wp --allow-root menu item add-custom home 'Blog' / --target=blog
 wp --allow-root menu item add-custom home 'Contato' / --target=contact
 wp --allow-root menu item add-custom home 'Equipe' / --target=team
 wp --allow-root menu item add-custom home 'Servi&ccedil;os' / --target=services
-
-# WordPress: Post Type
-wp --allow-root scaffold post-type team --theme='odyssey' --label='Team Member' --dashicon='id-alt'
-wp --allow-root scaffold post-type banner --theme='odyssey' --label='Banner' --dashicon='images-alt'
-wp --allow-root scaffold post-type services --theme='odyssey' --label='Service' --dashicon='cart'

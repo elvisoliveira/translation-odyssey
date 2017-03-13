@@ -1,5 +1,5 @@
 {
-    "name": "TranslationOdyssey",
+    "name": "translation-odyssey",
     "version": "1.0.0",
     "description": "",
     "author": "Elvis Oliveira <elvis.olv@gmail.com>",
@@ -13,7 +13,7 @@
         "jquery": "^1.12.4"
     },
     "scripts": {
-        "assets": "npm install --no-bin-links --production && bower update && grunt"
+        "assets": "npm update --no-bin-links --production && bower update && grunt"
     },
     "repository": {
         "type": "git",
