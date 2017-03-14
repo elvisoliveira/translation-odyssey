@@ -17,15 +17,19 @@ if [ ! -f "wp-config.php" ]; then
                                 --dbpass=123
 fi
 
-# WordPress: Post Type
+# WordPress: Post Types
+
+## Team
 if [ ! -f "wp-content/themes/odyssey/post-types/team.php" ]; then
     wp --allow-root scaffold post-type team --theme='odyssey' --label='Team Member' --dashicon='id-alt'
 fi
 
+## Banner
 if [ ! -f "wp-content/themes/odyssey/post-types/banner.php" ]; then
     wp --allow-root scaffold post-type banner --theme='odyssey' --label='Banner' --dashicon='images-alt'
 fi
 
+## Services
 if [ ! -f "wp-content/themes/odyssey/post-types/services.php" ]; then
     wp --allow-root scaffold post-type services --theme='odyssey' --label='Service' --dashicon='cart'
 fi
