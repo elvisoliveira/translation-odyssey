@@ -29,7 +29,7 @@
         <ul>
             <?php if (is_home()): ?>
                 <?php foreach (wp_get_nav_menu_items('home') as $item): ?>
-                    <li><a href="<?php print $item->target; ?>#<?php print $item->target; ?>"><?php print $item->title; ?></a></li>
+                    <li><a href="#<?php print $item->target; ?>"><?php print $item->title; ?></a></li>
                 <?php endforeach; ?>
             <?php else: ?>
                 <?php wp_list_pages('&title_li='); ?>

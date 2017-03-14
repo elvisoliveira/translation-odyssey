@@ -70,3 +70,6 @@ function odyssey_customizer($wp_customize)
 }
 
 add_action('customize_register', 'odyssey_customizer');
+
+// Image Sizes
+add_image_size('banner-home', 800, 600);
