@@ -5,11 +5,8 @@ services:
     database:
         container_name: odyssey-mysql
         image: mysql:5.7
-        environment:
-            - MYSQL_ROOT_PASSWORD=123
-            - MYSQL_DATABASE=translation-odyssey
-            - MYSQL_USER=admin
-            - MYSQL_PASSWORD=123
+        env_file:
+            - .env
         ports:
             - "3306:3306"
     webserver:
@@ -23,5 +20,7 @@ services:
             - database
         depends_on:
             - database
+        env_file:
+            - .env
         ports:
             - "80:80"

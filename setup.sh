@@ -1,5 +1,5 @@
 #!/bin/bash
-# docker exec odyssey-webserver /bin/sh -c "/var/www/odyssey/setup.sh"
+# docker exec -i -t odyssey-webserver /bin/sh -c "/var/www/odyssey/setup.sh"
 
 # Node.js resources
 (cd ./wp-content/themes/odyssey/node && npm run assets)
@@ -11,10 +11,11 @@ fi
 
 # WordPress Config
 if [ ! -f "wp-config.php" ]; then
+    # DB Config on docker-compose.yml
     wp --allow-root core config --dbhost=database \
-                                --dbname=translation-odyssey \
-                                --dbuser=root \
-                                --dbpass=123
+                                --dbname=$MYSQL_DATABASE \
+                                --dbuser=$MYSQL_USER \
+                                --dbpass=$MYSQL_PASSWORD
 fi
 
 # WordPress: Post Types
@@ -35,11 +36,23 @@ if [ ! -f "wp-content/themes/odyssey/post-types/services.php" ]; then
 fi
 
 # WordPress Install
+while [[ -z "$admin_password" ]]; do
+    read -p -s "[WP] Password: " admin_password
+done
+
+while [[ -z "$admin_user" ]]; do
+    read -p "[WP] User: " admin_user
+done
+
+while [[ -z "$admin_email" ]]; do
+    read -p "[WP] Email: " admin_email
+done
+
 wp --allow-root core install --url=http://translation-odyssey/ \
                              --title='Translation Odyssey' \
-                             --admin_user=admin \
-                             --admin_password=123 \
-                             --admin_email=elvis.olv@gmail.com \
+                             --admin_user=$admin_user \
+                             --admin_password=$admin_password \
+                             --admin_email=$admin_email \
                              --skip-email # Avoid postmail: 'sh: 1: -t: not found'
 
 # WordPress: ACF
