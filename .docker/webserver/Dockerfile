@@ -7,7 +7,7 @@ WORKDIR /var/www/odyssey
 # Enviroment Dependencies:
 # Composer requires zip and git. (https://getcomposer.org/doc/00-intro.md#system-requirements)
 RUN apt-get update && \
-    apt-get install git unzip npm mysql-client -y && \
+    apt-get install git unzip npm mysql-client libpng-dev libjpeg-dev -y && \
     docker-php-ext-install mysqli
 
 # Composer
@@ -18,8 +18,9 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     mv wp-cli.phar /usr/local/bin/wp && \
     chmod +x /usr/local/bin/wp
 
-# MySQL
-RUN docker-php-ext-install mysqli
+# PHP Extensions
+RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
+RUN docker-php-ext-install mysqli gd
 
 # Some required Node.js packages expects 
 # nodejs command to be node.
@@ -33,7 +34,7 @@ COPY ./.docker/webserver/php.ini ${PHP_INI_DIR}/php.ini
 COPY ./.docker/webserver/apache2.conf ${APACHE_CONFDIR}/apache2.inc.conf
 COPY ./.docker/webserver/000-default.conf ${APACHE_CONFDIR}/sites-available/000-default.conf
 
-RUN echo "Include apache2.inc.conf" >> /etc/apache2/apache2.conf
+RUN echo "include apache2.inc.conf" >> /etc/apache2/apache2.conf
 
 RUN a2enmod rewrite && \
     apache2ctl restart

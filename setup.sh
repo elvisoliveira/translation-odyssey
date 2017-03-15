@@ -36,12 +36,12 @@ if [ ! -f "wp-content/themes/odyssey/post-types/services.php" ]; then
 fi
 
 # WordPress Install
-while [[ -z "$admin_password" ]]; do
-    read -p -s "[WP] Password: " admin_password
-done
-
 while [[ -z "$admin_user" ]]; do
     read -p "[WP] User: " admin_user
+done
+
+while [[ -z "$admin_password" ]]; do
+    read -p "[WP] Password: " admin_password
 done
 
 while [[ -z "$admin_email" ]]; do

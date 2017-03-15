@@ -71,5 +71,16 @@ function odyssey_customizer($wp_customize)
 
 add_action('customize_register', 'odyssey_customizer');
 
+// Custom post type behavior
+function template_redirect()
+{
+    if (is_single() && in_array(get_query_var('post_type'), array('team', 'banner', 'services')))
+    {
+        wp_redirect(home_url(), 301);
+    }
+}
+
+add_action('template_redirect', 'template_redirect');
+
 // Image Sizes
-add_image_size('banner-home', 800, 600);
+add_image_size('banner-home', 800, 600, true);
