@@ -16,6 +16,11 @@ services:
             dockerfile: .docker/webserver/Dockerfile
         volumes:
             - .:/var/www/odyssey
+            # Ignore NPM and Bower packages:
+            # Prevent the mounting above from overwriting the app.
+            # https://github.com/docker/compose/issues/1607#issuecomment-240458538
+            - /var/www/odyssey/wp-content/themes/odyssey/node/node_modules
+            - /var/www/odyssey/wp-content/themes/odyssey/node/bower_components
         links:
             - database
         depends_on:
