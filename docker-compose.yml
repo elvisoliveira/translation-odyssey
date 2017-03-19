@@ -15,7 +15,7 @@ services:
             context: .
             dockerfile: .docker/webserver/Dockerfile
         volumes:
-            - .:/var/www/odyssey
+            - ${PWD}:/var/www/odyssey
             # Ignore NPM and Bower packages:
             # Prevent the mounting above from overwriting the app.
             # https://github.com/docker/compose/issues/1607#issuecomment-240458538
