@@ -44,7 +44,7 @@ foreach ($loop as $key => $value)
                     <ul>
                         <?php while ($banner->have_posts()): $banner->the_post(); ?>
                             <li>
-                                <?php the_title(); ?>
+                                <!--<?php the_title(); ?>-->
                                 <img src="<?php print get_field_object('banner_image')['value']['sizes']['banner-home']; ?>" />
                             </li>
                         <?php endwhile; ?>

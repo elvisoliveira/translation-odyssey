@@ -12,13 +12,13 @@
             <li class="text">
                 <span>FOLLOW US:</span>
             </li>
-            <li class="feed">
+            <li class="icon feed">
                 <span><?php post_comments_feed_link('<i class="icon-rss"></i>'); ?></span>
             </li>
-            <li class="twitter">
+            <li class="icon twitter">
                 <a href="<?php print get_theme_mod('twitter_setting', 'http://twitter.com/'); ?>"><i class="icon-twitter"></i></a>
             </li>
-            <li class="facebok">
+            <li class="icon facebok">
                 <a href="<?php print get_theme_mod('facebook_setting', 'http://facebook.com/'); ?>"><i class="icon-facebook"></i></i></a>
             </li>
         </ul>

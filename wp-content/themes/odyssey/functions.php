@@ -22,6 +22,8 @@ function odyssey_scripts()
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css');
 
     // JS
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/jquery/jquery.js');
+    wp_enqueue_script('jquery-cycle', get_template_directory_uri() . '/assets/jquery-cycle/index.js');
     wp_enqueue_script('base', get_template_directory_uri() . '/scripts/base.js');
 }
 
@@ -83,4 +85,4 @@ function template_redirect()
 add_action('template_redirect', 'template_redirect');
 
 // Image Sizes
-add_image_size('banner-home', 800, 600, true);
+add_image_size('banner-home', 1000, 450, true);

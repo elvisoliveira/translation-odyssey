@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     grunt.initConfig({
         copy: [{
                 files: [
@@ -13,6 +13,12 @@ module.exports = function (grunt) {
                         cwd: 'node_modules/jquery/dist/',
                         src: ['jquery.js'],
                         dest: './../assets/jquery/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'node_modules/jquery-cycle/',
+                        src: ['index.js'],
+                        dest: './../assets/jquery-cycle/'
                     }
                 ]
             }]

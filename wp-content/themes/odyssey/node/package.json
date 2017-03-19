@@ -10,7 +10,8 @@
         "grunt-contrib-copy": "^1.0.0"
     },
     "dependencies": {
-        "jquery": "^1.12.4"
+        "jquery": "^1.12.4",
+        "jquery-cycle": "^3.0.3"
     },
     "scripts": {
         "assets": "npm update --no-bin-links && bower update && grunt"
