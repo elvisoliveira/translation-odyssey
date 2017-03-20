@@ -7,6 +7,14 @@ $loop['banner'] = array(
     'orderby'     => 'date'
 );
 
+$loop['team'] = array(
+    'post_type'   => array('team'),
+    'post_status' => array('publish'),
+    'nopaging'    => true,
+    'order'       => 'DESC',
+    'orderby'     => 'date'
+);
+
 foreach ($loop as $key => $value)
 {
     ${$key} = new WP_Query($value);
@@ -51,6 +59,35 @@ foreach ($loop as $key => $value)
                 </div>
             <?php endif; ?>
         </div>
+        <div class="team">
+            <div class="inner">
+                <div class="team-title">
+                    <h2>Team</h2>
+                </div>
+                <?php if ($team->have_posts()): ?>
+                    <div class="team-members">
+                        <ul>
+                            <?php $index = 1; while ($team->have_posts()): $team->the_post(); ?>
+                                <li>
+                                    <div class="member-picture"><?php print get_field_object('team_picture'); ?></div>
+                                    <div class="member-decsription"><?php print get_field_object('team_resume'); ?></div>
+                                    <div class="member-name"><?php $team->the_title(); ?></div>
+                                </li>
+                                <?php if($i % 3 == 0): ?></ul><ul><?php endif; ?>
+                            <?php $index++; endwhile; ?>
+                        </ul>
+                    </div>
+                    <div class="team-pager">
+                        <a href="#prev" class="prev"><i class="icon-angle-left"></i></a>
+                        <a href="#next" class="next"><i class="icon-angle-right"></i></a>
+                    </div>
+                <?php else: ?>
+                    <div class="message">
+                        <p>No post.</p>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
         <div class="body">
             <div class="post">
                 <?php if (have_posts()): ?>
@@ -73,7 +110,7 @@ foreach ($loop as $key => $value)
                         </ul>
                     </div>
                 <?php else: ?>
-                    <div class="posts message">
+                    <div class="posts">
                         <p>No post found.</p>
                     </div>
                 <?php endif; ?>
