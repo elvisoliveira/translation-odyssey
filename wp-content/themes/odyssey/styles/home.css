@@ -30,9 +30,9 @@ div.banner div.images ul { float: left; width: 100%; }
 div.banner div.images ul li { float: left; width: 100%; height: 400px; filter: blur(1px) grayscale(70%); background-repeat: no-repeat;background-position: center;background-size: cover;transform: scale(1.03);}
 
 div.team {float: left;width: 100%;}
-div.team div.team-title {float: left;width: 100%;margin-bottom: 60px;}
+div.team div.team-title {float: left;width: 100%;margin-bottom: 30px;}
 div.team div.team-title h2 {float: left;text-transform: capitalize;font-weight: 700;font-size: 35px;}
-div.team div.team-members {float: left;width: 100%;position: relative;z-index: 20;}
+div.team div.team-members {float: left;width: 100%;position: relative;z-index: 20;margin-top: 30px;}
 div.team div.team-members ul {float: left;width: 100%;}
 div.team div.team-members ul li {list-style: none;float: left;width: 300px;}
 div.team div.team-members ul li:nth-child(3n-1) {margin: 0 60px;}
