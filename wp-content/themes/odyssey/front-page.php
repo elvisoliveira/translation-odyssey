@@ -20,6 +20,7 @@ foreach ($loop as $key => $value)
 {
     ${$key} = new WP_Query($value);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +85,7 @@ foreach ($loop as $key => $value)
                     </div>
                 <?php else: ?>
                     <div class="message">
-                        <p>No post.</p>
+                        <p>No team members added.</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -95,7 +96,7 @@ foreach ($loop as $key => $value)
                     <h2>Services</h2>
                 </div>
                 <div class="services-text">
-                    <?php print get_post(2)->post_content; ?>
+                    <?php print get_post(array('name' => 'services'))->post_content; ?>
                 </div>
             </div>
         </div>
