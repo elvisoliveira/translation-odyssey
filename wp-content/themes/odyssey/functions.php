@@ -73,7 +73,8 @@ function odyssey_customizer($wp_customize)
 
 add_action('customize_register', 'odyssey_customizer');
 
-// Custom post type behavior
+// Custom post type behavior.
+// Make it unable to ope specific pages.
 function template_redirect()
 {
     if (is_single() && in_array(get_query_var('post_type'), array('team', 'banner', 'services')))
@@ -83,6 +84,22 @@ function template_redirect()
 }
 
 add_action('template_redirect', 'template_redirect');
+
+// Make the initial pages undeleatable.
+// https://goo.gl/mTmmA3
+function restrict_post_deletion($post_id)
+{
+    if(in_array($post_id, array(1, 2, 3, 4, 5)))
+    {
+        if(wp_redirect(html_entity_decode(get_edit_post_link($post_id))))
+        {
+            exit();
+        }
+    }
+}
+
+add_action('wp_trash_post', 'restrict_post_deletion', 10, 1);
+add_action('before_delete_post', 'restrict_post_deletion', 10, 1);
 
 // Image Sizes
 add_image_size('banner-home', 1000, 450, true);
