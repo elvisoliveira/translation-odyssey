@@ -1,4 +1,5 @@
 <?php
+
 $loop['banner'] = array(
     'post_type'   => array('banner'),
     'post_status' => array('publish'),
@@ -88,35 +89,14 @@ foreach ($loop as $key => $value)
                 <?php endif; ?>
             </div>
         </div>
-        <div class="body">
-            <div class="post">
-                <?php if (have_posts()): ?>
-                    <div class="posts list">
-                        <?php while (have_posts()): ?> 
-                            <li>
-                                <div class="post">
-                                    <?php the_post(); ?>
-                                </div>
-                                <div class="temp">
-                                    <?php get_template_part('content', get_post_format()); ?>
-                                </div>
-                            </li>
-                        <?php endwhile; ?>
-                    </div>
-                    <div class="posts pager">
-                        <ul>
-                            <li><?php next_posts_link('Previous'); ?></li>
-                            <li><?php previous_posts_link('Next'); ?></li>
-                        </ul>
-                    </div>
-                <?php else: ?>
-                    <div class="posts">
-                        <p>No post found.</p>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <div class="side">
-                <?php get_sidebar(); ?>
+        <div class="services">
+            <div class="inner">
+                <div class="team-title">
+                    <h2>Services</h2>
+                </div>
+                <div class="services-text">
+                    <?php print get_post(2)->post_content; ?>
+                </div>
             </div>
         </div>
         <div class="foot">
