@@ -95,13 +95,19 @@ wp site empty --yes --allow-root
 wp post create ./.docker/wordpress/post-content.txt --allow-root \
                                                     --post_type='page' \
                                                     --post_status='publish' \
-                                                    --post_title='Equipe'
+                                                    --post_title='Team'
+
+# Page: About
+wp post create ./.docker/wordpress/post-content.txt --allow-root \
+                                                    --post_type='page' \
+                                                    --post_status='publish' \
+                                                    --post_title='About'
 
 # Page: Services
 wp post create ./.docker/wordpress/post-content.txt --allow-root \
                                                     --post_type='page' \
                                                     --post_status='publish' \
-                                                    --post_title='Servi&ccedil;os'
+                                                    --post_title='Services'
 
 # Page: Blog
 wp post create ./.docker/wordpress/post-content.txt --allow-root \
@@ -113,7 +119,10 @@ wp post create ./.docker/wordpress/post-content.txt --allow-root \
 wp post create ./.docker/wordpress/post-content.txt --allow-root \
                                                     --post_type='page' \
                                                     --post_status='publish' \
-                                                    --post_title='Contato'
+                                                    --post_title='Contact'
+
+# Slugfy
+wp rewrite structure '/%postname%' --allow-root
 
 # WordPress Content: Menu ######################################################
 ################################################################################
@@ -122,9 +131,10 @@ wp menu create "Home" --allow-root
 
 # Menu: Item
 wp --allow-root menu item add-custom home 'Blog' / --target=blog
-wp --allow-root menu item add-custom home 'Contato' / --target=contact
-wp --allow-root menu item add-custom home 'Equipe' / --target=team
-wp --allow-root menu item add-custom home 'Servi&ccedil;os' / --target=services
+wp --allow-root menu item add-custom home 'Team' / --target=team
+wp --allow-root menu item add-custom home 'About' / --target=about
+wp --allow-root menu item add-custom home 'Contact' / --target=contact
+wp --allow-root menu item add-custom home 'Services' / --target=services
 
 # WordPress Content: Banner ####################################################
 ################################################################################
