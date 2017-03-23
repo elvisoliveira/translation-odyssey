@@ -83,10 +83,10 @@ fi
 wp plugin install advanced-custom-fields --activate --allow-root
 
 # Plugins: Jetpack by WordPress.com
-wp plugin install jetpack --version=2.8 --activate --allow-root
+wp --allow-root plugin install jetpack --activate
 
 # Theme: Odyssey
-wp theme activate odyssey --allow-root
+wp --allow-root theme activate odyssey
 
 # WordPress Content: Post ######################################################
 ################################################################################
@@ -174,10 +174,10 @@ if [ "$img" == "y" ]; then
 
         # ACF
         wp eval-file ./.docker/wordpress/post-content.php --allow-root \
-                                                        $WP_INDX \
-                                                        $WP_TEMP \
-                                                        $WP_ATTC \
-                                                        $WP_POST
+                                                          $WP_INDX \
+                                                          $WP_TEMP \
+                                                          $WP_ATTC \
+                                                          $WP_POST
     done
 
 fi

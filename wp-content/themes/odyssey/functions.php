@@ -15,15 +15,19 @@ foreach (glob(dirname(__FILE__) . '/post-types/*.php') as $filename)
 function odyssey_scripts()
 {
     // CSS: Main
-    wp_enqueue_style('base', get_template_directory_uri() . '/styles/base.css');
-    wp_enqueue_style('home', get_template_directory_uri() . '/styles/home.css');
+    $style = array('base', 'home');
+
+    foreach($style as $value)
+    {
+        wp_enqueue_style($value, get_template_directory_uri() . "/styles/{$value}.css");
+    }
 
     // CSS: Font Awesome
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css');
 
     // JS
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/jquery/jquery.js');
     wp_enqueue_script('jquery-cycle', get_template_directory_uri() . '/assets/jquery-cycle/index.js');
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/jquery/jquery.js');
     wp_enqueue_script('base', get_template_directory_uri() . '/scripts/base.js');
 }
 

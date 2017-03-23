@@ -3,6 +3,7 @@
 
 # Except for:
 !.gitignore
+!.htaccess
 !.env
 !.gitattributes
 !composer.json

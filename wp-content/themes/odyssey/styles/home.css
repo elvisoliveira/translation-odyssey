@@ -20,14 +20,14 @@ div.header div.nav div.inner ul.right {float: right;}
 div.header div.nav div.inner ul li { float: left; color: #FFF; list-style: none; height: 80px; line-height: 45px; margin-left: 40px;}
 div.header div.nav div.inner ul li a { color: #FFF; font-size: 15px; text-decoration: none; line-height: 80px;text-transform: capitalize;}
 
-div.banner { float: left; width: 100%; position: relative; margin-top: -80px;z-index: 10;height: 450px;}
+div.banner { float: left; width: 100%; position: relative; margin-top: -80px;z-index: 10;height: 450px;overflow: hidden;}
 div.banner div.info { width: 1022px; margin-left: -511px; position: relative; left: 50%; z-index: 10; }
 div.banner div.info h1 {float: left;width: 100%;}
 div.banner div.info h1 a {font-weight: 900;font-size: 68px;color: white;text-decoration: none;float: left;width: 100%;text-align: center;line-height: 68px;margin-top: 185px;}
 div.banner div.info h2 {color: #fff;font-size: 13px;text-align: center;float: left;width: 100%;font-weight: 400;text-indent: -179px;}
 div.banner div.images { position: absolute; top: 0; left: 0; width: 100%; overflow: hidden; }
 div.banner div.images ul { float: left; width: 100%; }
-div.banner div.images ul li { float: left; width: 100%; height: 450px; filter: blur(1px) grayscale(70%); background-repeat: no-repeat;background-position: center;background-size: cover;transform: scale(1.03);}
+div.banner div.images ul li { float: left; width: 100%; height: 450px; filter: blur(1px) grayscale(70%); background-repeat: no-repeat;background-position: center;background-size: cover;}
 
 div.team {float: left;width: 100%;padding: 50px 0;}
 div.team div.team-title {float: left;width: 100%;margin-bottom: 30px;}

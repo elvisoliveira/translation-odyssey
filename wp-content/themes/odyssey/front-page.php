@@ -27,7 +27,7 @@ foreach ($loop as $key => $value)
     <head>
         <title><?php wp_title('|', true, 'right'); ?></title>
         <!-- Search Engines -->
-        <meta charset="UTF-8" />
+        <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="robots" content="index, follow" />
         <meta name="author" content="http://github.com/elvisoliveira" />
         <meta name="keywords" content="" />
