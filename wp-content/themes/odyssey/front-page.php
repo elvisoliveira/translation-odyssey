@@ -100,8 +100,10 @@ foreach ($loop as $key => $value)
                 </div>
             </div>
         </div>
-        <div class="foot">
-            <?php get_footer(); ?>
+        <div class="footer">
+            <div class="inner">
+                <?php get_footer(); ?>
+            </div>
         </div>
         <?php wp_footer(); ?>
     </body>

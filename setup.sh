@@ -3,13 +3,13 @@
 ################################################################################
 
 # Node.js resources
-read -p "Execute NPM? [yes] " npm
+read -p "Execute NPM? y/n [n] " npm
 
 while [[ -z "$npm" ]]; do
-    npm="yes"
+    npm="n"
 done
 
-if [ "$npm" == "yes" ]; then
+if [ "$npm" == "y" ]; then
   (cd ./wp-content/themes/odyssey/node && npm run assets)
 fi
 
@@ -82,6 +82,9 @@ fi
 # Plugins: ACF
 wp plugin install advanced-custom-fields --activate --allow-root
 
+# Plugins: Jetpack by WordPress.com
+wp plugin install jetpack --version=2.8 --activate --allow-root
+
 # Theme: Odyssey
 wp theme activate odyssey --allow-root
 
@@ -116,10 +119,10 @@ wp post create ./.docker/wordpress/post-content.txt --allow-root \
                                                     --post_title='Blog'
 
 # Page: Contact
-wp post create ./.docker/wordpress/post-content.txt --allow-root \
-                                                    --post_type='page' \
-                                                    --post_status='publish' \
-                                                    --post_title='Contact'
+wp post create ./.docker/wordpress/post-form.txt --allow-root \
+                                                 --post_type='page' \
+                                                 --post_status='publish' \
+                                                 --post_title='Contact'
 
 # Slugfy
 wp rewrite structure '/%postname%' --allow-root
@@ -141,30 +144,40 @@ wp --allow-root menu item add-custom home 'Services' / --target=services
 
 WP_TEMP=$(mktemp -d)
 
-for WP_INDX in {1..5}; do
+read -p "Download images? y/n [n] " img
 
-    # Temp location
-    WP_IMAG="${WP_TEMP}/${WP_INDX}.jpg"
-
-    # Download 5 ramdom images 1000x1000
-    curl -o ${WP_IMAG} 'https://unsplash.it/1000/1000/?random'
-
-    # Attach on WordPress
-    WP_ATTC=$(wp media import ${WP_IMAG} --porcelain --allow-root)
-
-    # Posts
-    WP_NODE=("wp post create --post_type='banner'      " # Type
-             "               --post_status='publish'   " # Status
-             "               --post_title='${WP_IMAG}' " # Title: Unsupported spaces
-             "               --porcelain               " # Return
-             "               --allow-root              ")
-
-    WP_POST=$(${WP_NODE[@]})
-
-    # ACF
-    wp eval-file ./.docker/wordpress/post-content.php --allow-root \
-                                                      $WP_INDX \
-                                                      $WP_TEMP \
-                                                      $WP_ATTC \
-                                                      $WP_POST
+while [[ -z "$img" ]]; do
+    img="n"
 done
+
+if [ "$img" == "y" ]; then
+
+    for WP_INDX in {1..5}; do
+
+        # Temp location
+        WP_IMAG="${WP_TEMP}/${WP_INDX}.jpg"
+
+        # Download 5 ramdom images 1000x1000
+        curl -o ${WP_IMAG} 'https://unsplash.it/1000/1000/?random'
+
+        # Attach on WordPress
+        WP_ATTC=$(wp media import ${WP_IMAG} --porcelain --allow-root)
+
+        # Posts
+        WP_NODE=("wp post create --post_type='banner'      " # Type
+                 "               --post_status='publish'   " # Status
+                 "               --post_title='${WP_IMAG}' " # Title: Unsupported spaces
+                 "               --porcelain               " # Return
+                 "               --allow-root              ")
+
+        WP_POST=$(${WP_NODE[@]})
+
+        # ACF
+        wp eval-file ./.docker/wordpress/post-content.php --allow-root \
+                                                        $WP_INDX \
+                                                        $WP_TEMP \
+                                                        $WP_ATTC \
+                                                        $WP_POST
+    done
+
+fi
