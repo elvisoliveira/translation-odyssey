@@ -85,6 +85,9 @@ wp plugin install advanced-custom-fields --activate --allow-root
 # Plugins: Jetpack by WordPress.com
 wp --allow-root plugin install jetpack --activate
 
+# Jetpack: Contact
+wp --allow-root jetpack module activate contact-form
+
 # Theme: Odyssey
 wp --allow-root theme activate odyssey
 
