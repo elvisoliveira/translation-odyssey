@@ -100,6 +100,24 @@ foreach ($loop as $key => $value)
                 </div>
             </div>
         </div>
+        <div class="blog">
+            <div class="inner">
+                <div class="blog-title">
+                    <h2>Blog</h2>
+                </div>
+                <div class="blog-list">
+                    <?php if (have_posts()): ?>
+                    <ul>
+                        <?php while (have_posts()): the_post(); ?>
+                        <li>
+                            <?php get_template_part('content', get_post_format()); ?>
+                        </li>
+                        <?php endwhile; ?>
+                    </ul>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
         <div class="footer">
             <div class="inner">
                 <?php get_footer(); ?>

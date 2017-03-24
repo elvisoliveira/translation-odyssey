@@ -2,6 +2,10 @@
 
 * { margin: 0; padding: 0; font-family: 'Raleway', sans-serif; }
 
-div.inner { width: 1022px; margin-left: -511px; position: relative; left: 50%; text-transform: uppercase; font-size: 13px; }
+div.inner { width: 1022px; margin-left: -511px; position: relative; left: 50%;  font-size: 13px; color: #D3D3D2;}
 
 div.message {float: left;width: calc(100% - 20px);border: 1px solid #CCC;padding: 10px;border-radius: 2px;text-align: center;text-transform: none;font-size: 14px;height: 320px;line-height: 320px;}
+
+:invalid { box-shadow: none; }
+:-moz-submit-invalid { box-shadow: none; }
+:-moz-ui-invalid { box-shadow: none; }

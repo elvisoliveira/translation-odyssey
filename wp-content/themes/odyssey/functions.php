@@ -26,8 +26,8 @@ function odyssey_scripts()
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css');
 
     // JS
-    wp_enqueue_script('jquery-cycle', get_template_directory_uri() . '/assets/jquery-cycle/index.js');
     wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/jquery/jquery.js');
+    wp_enqueue_script('jquery-cycle', get_template_directory_uri() . '/assets/jquery-cycle/index.js');
     wp_enqueue_script('base', get_template_directory_uri() . '/scripts/base.js');
 }
 
@@ -38,6 +38,8 @@ function odyssey_google_fonts()
 {
     wp_register_style('OpenSans', '//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
     wp_enqueue_style('OpenSans');
+    
+    wp_deregister_style('grunion.css');
 }
 
 add_action('wp_print_styles', 'odyssey_google_fonts');
@@ -105,5 +107,9 @@ function restrict_post_deletion($post_id)
 add_action('wp_trash_post', 'restrict_post_deletion', 10, 1);
 add_action('before_delete_post', 'restrict_post_deletion', 10, 1);
 
-// Image Sizes
+// Image sizes
 add_image_size('banner-home', 1000, 450, true);
+add_image_size('post-home', 300, 225, true);
+
+// Thumbnail support
+add_theme_support('post-thumbnails');
