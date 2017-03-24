@@ -33,6 +33,7 @@ foreach ($loop as $key => $value)
         <meta name="keywords" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="" />
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
         <!-- WordPress Head -->
         <?php wp_head(); ?>
     </head>
@@ -114,6 +115,10 @@ foreach ($loop as $key => $value)
                         </li>
                         <?php endwhile; ?>
                     </ul>
+                    <?php else: ?>
+                        <div class="message">
+                            <p>No posts on the Blog section.</p>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>

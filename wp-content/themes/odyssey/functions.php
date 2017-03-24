@@ -28,7 +28,7 @@ function odyssey_scripts()
     // JS
     wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/jquery/jquery.js');
     wp_enqueue_script('jquery-cycle', get_template_directory_uri() . '/assets/jquery-cycle/index.js');
-    wp_enqueue_script('base', get_template_directory_uri() . '/scripts/base.js');
+    wp_enqueue_script('base', get_template_directory_uri() . '/scripts/base.js', '', '', true);
 }
 
 add_action('wp_enqueue_scripts', 'odyssey_scripts');
