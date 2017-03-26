@@ -1,7 +1,11 @@
 <div class="blog-image">
-    <a href="<?php the_permalink(); ?>">
-        <?php the_post_thumbnail('post-home'); ?>
-    </a>
+    <?php if (has_post_thumbnail()): ?>
+        <a href="<?php the_permalink(); ?>">
+            <?php the_post_thumbnail('post-home'); ?>
+        </a>
+    <?php else: ?>
+        <p>No image.</p>
+    <?php endif; ?>
 </div>
 <div class="blog-title">
     <a href="<?php the_permalink(); ?>">
