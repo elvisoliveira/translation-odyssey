@@ -16,6 +16,14 @@ $loop['team'] = array(
     'orderby'     => 'date'
 );
 
+$loop['blog'] = array(
+    'post_type'   => array('post'),
+    'post_status' => array('publish'),
+    'nopaging'    => true,
+    'order'       => 'DESC',
+    'orderby'     => 'date'
+);
+
 foreach ($loop as $key => $value)
 {
     ${$key} = new WP_Query($value);
@@ -43,9 +51,7 @@ foreach ($loop as $key => $value)
         </div>
         <div class="banner">
             <div class="info">
-                <h1 class="blog-title">
-                    <a href="<?php bloginfo('wpurl'); ?>"><?php print get_bloginfo('name'); ?></a>
-                </h1>
+                <h1 class="blog-title"><?php print get_bloginfo('name'); ?></h1>
                 <h2 class="blog-descr">
                     <?php print get_theme_mod('slogan_setting', 'Are you looking for a reliable translation Company? You have just found one!'); ?>
                 </h2>    
@@ -62,7 +68,7 @@ foreach ($loop as $key => $value)
                 </div>
             <?php endif; ?>
         </div>
-        <div class="team">
+        <div id="team">
             <div class="inner">
                 <div class="team-title">
                     <h2>Team</h2>
@@ -91,7 +97,7 @@ foreach ($loop as $key => $value)
                 <?php endif; ?>
             </div>
         </div>
-        <div class="services">
+        <div id="services">
             <div class="inner">
                 <div class="team-title">
                     <h2>Services</h2>
@@ -101,17 +107,17 @@ foreach ($loop as $key => $value)
                 </div>
             </div>
         </div>
-        <div class="blog">
+        <div id="blog">
             <div class="inner">
                 <div class="blog-title">
                     <h2>Blog</h2>
                 </div>
                 <div class="blog-list">
-                    <?php if (have_posts()): ?>
+                    <?php if ($blog->have_posts()): ?>
                     <ul>
-                        <?php while (have_posts()): the_post(); ?>
+                        <?php while ($blog->have_posts()): $blog->the_post(); ?>
                         <li>
-                            <?php get_template_part('content', get_post_format()); ?>
+                            <?php get_template_part('content', $blog->get_post_format()); ?>
                         </li>
                         <?php endwhile; ?>
                     </ul>
