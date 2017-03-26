@@ -17,7 +17,7 @@ function odyssey_scripts()
     // CSS: Main
     $style = array('base', 'home');
 
-    foreach($style as $value)
+    foreach ($style as $value)
     {
         wp_enqueue_style($value, get_template_directory_uri() . "/styles/{$value}.css");
     }
@@ -38,7 +38,7 @@ function odyssey_google_fonts()
 {
     wp_register_style('OpenSans', '//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
     wp_enqueue_style('OpenSans');
-    
+
     wp_deregister_style('grunion.css');
 }
 
@@ -95,9 +95,9 @@ add_action('template_redirect', 'template_redirect');
 // https://goo.gl/mTmmA3
 function restrict_post_deletion($post_id)
 {
-    if(in_array($post_id, array(1, 2, 3, 4, 5)))
+    if (in_array($post_id, array(1, 2, 3, 4, 5)))
     {
-        if(wp_redirect(html_entity_decode(get_edit_post_link($post_id))))
+        if (wp_redirect(html_entity_decode(get_edit_post_link($post_id))))
         {
             exit();
         }
@@ -113,3 +113,9 @@ add_image_size('post-home', 300, 225, true);
 
 // Thumbnail support
 add_theme_support('post-thumbnails');
+
+// Define the front-page.
+// Jetpack contact form plugin requires a post or widget to be rendered.
+update_option('page_on_front', get_page_by_path('home')->ID);
+update_option('show_on_front', 'page');
+

@@ -27,7 +27,7 @@
 <div class="nav">
     <div class="inner">
         <ul>
-            <?php if (is_home()): ?>
+            <?php if (is_front_page()): ?>
                 <?php foreach (wp_get_nav_menu_items('home') as $item): ?>
                     <li><a href="#<?php print $item->target; ?>"><?php print $item->title; ?></a></li>
                 <?php endforeach; ?>
