@@ -57,10 +57,10 @@ wp core install --url=http://translation-odyssey/ \
 
 # Post Type: Team
 if [ ! -f "wp-content/themes/odyssey/post-types/team.php" ]; then
-    wp scaffold post-type team --theme='odyssey' \
-                               --label='Team Member' \
-                               --dashicon='id-alt' \
-                               --allow-root
+    wp scaffold post-type team-member --theme='odyssey' \
+                                      --label='Team Member' \
+                                      --dashicon='id-alt' \
+                                      --allow-root
 fi
 
 # Post Type: Banner
@@ -73,10 +73,10 @@ fi
 
 # Post Type: Services
 if [ ! -f "wp-content/themes/odyssey/post-types/services.php" ]; then
-    wp scaffold post-type services --theme='odyssey' \
-                                   --label='Service' \
-                                   --dashicon='cart' \
-                                   --allow-root
+    wp scaffold post-type service --theme='odyssey' \
+                                  --label='Service' \
+                                  --dashicon='cart' \
+                                  --allow-root
 fi
 
 # Plugins: ACF
@@ -120,6 +120,12 @@ wp post create ./.docker/wordpress/post-content.txt --allow-root \
                                                     --post_type='page' \
                                                     --post_status='publish' \
                                                     --post_title='Blog'
+
+# Page: Home
+wp post create ./.docker/wordpress/post-content.txt --allow-root \
+                                                    --post_type='page' \
+                                                    --post_status='publish' \
+                                                    --post_title='Home'
 
 # Page: Contact
 wp post create ./.docker/wordpress/post-form.txt --allow-root \
