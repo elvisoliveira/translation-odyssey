@@ -36,6 +36,18 @@ COPY ./.docker/webserver/000-default.conf ${APACHE_CONFDIR}/sites-available/000-
 
 RUN echo "include apache2.inc.conf" >> /etc/apache2/apache2.conf
 
+# xDebug on Docker
+# https://goo.gl/rLzfMo
+# RUN pecl install xdebug
+# RUN docker-php-ext-enable xdebug
+# RUN sed -i '1 a xdebug.remote_autostart=true'  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# RUN sed -i '1 a xdebug.remote_mode=req'        /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# RUN sed -i '1 a xdebug.remote_handler=dbgp'    /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# RUN sed -i '1 a xdebug.remote_connect_back=1 ' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# RUN sed -i '1 a xdebug.remote_port=9000'       /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# RUN sed -i '1 a xdebug.remote_host=127.0.0.1'  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# RUN sed -i '1 a xdebug.remote_enable=1'        /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 RUN a2enmod rewrite && \
     apache2ctl restart
 
