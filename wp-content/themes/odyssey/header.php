@@ -24,16 +24,23 @@
         </ul>
     </div>    
 </div>
-<div class="nav">
+<div class="nav <?php if (is_front_page()): ?>home<?php endif; ?>">
     <div class="inner">
-        <ul>
-            <?php if (is_front_page()): ?>
-                <?php foreach (wp_get_nav_menu_items('home') as $item): ?>
-                    <li><a href="#<?php print $item->target; ?>"><?php print $item->title; ?></a></li>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <?php wp_list_pages('&title_li='); ?>
-            <?php endif; ?>
-        </ul>
+        <div class="home-logo">
+            <a href="<?php print get_home_url(); ?>"><?php print get_bloginfo('name'); ?></a>
+        </div>
+        <div class="home-menu">
+            <?php foreach (wp_get_nav_menu_items('home') as $item): ?>
+                <ul>
+                    <li>
+                        <?php if (is_front_page()): ?>
+                            <a href="#<?php print $item->target; ?>"><?php print $item->title; ?></a>
+                        <?php else: ?>
+                            <a href="<?php print get_home_url(); ?>/<?php print $item->target; ?>"><?php print $item->title; ?></a>
+                        <?php endif; ?>
+                    </li>
+                </ul>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
