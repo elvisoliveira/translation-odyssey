@@ -17,13 +17,18 @@
         <div class="header">
             <?php get_header(); ?>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <?php if (have_posts()) : ?>
-                    <?php while (have_posts()) : ?>
-                        <?php the_post(); ?>
-                        <?php get_template_part('content', get_post_format()); ?>
-                    <?php endwhile; ?>
+        <div class="content">
+            <div class="inner">
+                <?php if (have_posts()): ?>
+                    <div class="page">
+                        <?php while (have_posts()): ?>
+                            <?php the_post(); ?>
+                            <div class="content-title"><?php the_title(); ?><hr /></div>
+                            <div class="content-desc"><?php the_content(); ?></div>
+                        <?php endwhile; ?>
+                    </div>
+                <?php else: ?>
+                    <p>Sorry, this page does not exist.</p>
                 <?php endif; ?>
             </div>
         </div>
