@@ -56,7 +56,7 @@ wp core install --url=http://translation-odyssey/ \
 ################################################################################
 
 # Post Type: Team
-if [ ! -f "wp-content/themes/odyssey/post-types/team.php" ]; then
+if [ ! -f "wp-content/themes/odyssey/post-types/team-member.php" ]; then
     wp scaffold post-type team-member --theme='odyssey' \
                                       --label='Team Member' \
                                       --dashicon='id-alt' \
@@ -72,7 +72,7 @@ if [ ! -f "wp-content/themes/odyssey/post-types/banner.php" ]; then
 fi
 
 # Post Type: Services
-if [ ! -f "wp-content/themes/odyssey/post-types/services.php" ]; then
+if [ ! -f "wp-content/themes/odyssey/post-types/service.php" ]; then
     wp scaffold post-type service --theme='odyssey' \
                                   --label='Service' \
                                   --dashicon='cart' \
@@ -142,11 +142,11 @@ wp rewrite structure '/%postname%' --allow-root
 wp menu create "Home" --allow-root
 
 # Menu: Item
+wp --allow-root menu item add-custom home 'Contact' / --target=contact
 wp --allow-root menu item add-custom home 'Blog' / --target=blog
 wp --allow-root menu item add-custom home 'Team' / --target=team
-wp --allow-root menu item add-custom home 'About' / --target=about
-wp --allow-root menu item add-custom home 'Contact' / --target=contact
 wp --allow-root menu item add-custom home 'Services' / --target=services
+wp --allow-root menu item add-custom home 'About' / --target=about
 
 # WordPress Content: Banner ####################################################
 ################################################################################
