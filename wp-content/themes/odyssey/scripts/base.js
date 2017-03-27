@@ -1,14 +1,14 @@
 (function($) {
     // Home: Banner
-    $('div.banner div.images ul').cycle();
+    $('body.home div.banner div.images ul').cycle();
     // Home: Team
-    $('div.team div.team-members').cycle({
+    $('body.home div.team div.team-members').cycle({
         prev: '.prev',
         next: '.next',
         timeout: 0
     });
     // Home: Stcky menu
-    $('div.nav a').click(function(event) {
+    $('body.home div.nav a').click(function(event) {
         event.preventDefault();
         $('html, body').animate({
             scrollTop: ($('div' + $(this).attr('href')).offset().top) - 60

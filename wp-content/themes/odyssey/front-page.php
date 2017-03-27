@@ -1,4 +1,5 @@
 <?php
+
 $loop['banner'] = array(
     'post_type' => array('banner'),
     'post_status' => array('publish'),
@@ -6,6 +7,7 @@ $loop['banner'] = array(
     'order' => 'DESC',
     'orderby' => 'date'
 );
+
 $loop['team'] = array(
     'post_type' => array('team'),
     'post_status' => array('publish'),
@@ -13,6 +15,7 @@ $loop['team'] = array(
     'order' => 'DESC',
     'orderby' => 'date'
 );
+
 $loop['blog'] = array(
     'post_type' => array('post'),
     'post_status' => array('publish'),
@@ -41,7 +44,7 @@ foreach ($loop as $key => $value)
         <!-- WordPress Head -->
         <?php wp_head(); ?>
     </head>
-    <body>
+    <body class="home">
         <div class="header">
             <?php get_header(); ?>
         </div>
