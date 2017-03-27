@@ -16,13 +16,8 @@
     });
     $(window).scroll(function($) {
         // Stick navigation to the top of the page
-        if (jQuery(window).scrollTop() > 45)
-        {
-            jQuery('div.nav').addClass('sticky-header');
-        }
-        else
-        {
-            jQuery('div.nav').removeClass('sticky-header');
-        }
+        var scrollWindow = jQuery(window).scrollTop();
+        var scrollBanner = jQuery('div.banner').offset().top;
+        jQuery('div.nav').removeClass('sticky-header').addClass(scrollWindow > scrollBanner ? 'sticky-header' : '');
     });
 })(jQuery);

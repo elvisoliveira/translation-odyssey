@@ -1,39 +1,35 @@
 <?php
-
 $loop['banner'] = array(
-    'post_type'   => array('banner'),
+    'post_type' => array('banner'),
     'post_status' => array('publish'),
-    'nopaging'    => true,
-    'order'       => 'DESC',
-    'orderby'     => 'date'
+    'nopaging' => true,
+    'order' => 'DESC',
+    'orderby' => 'date'
 );
-
 $loop['team'] = array(
-    'post_type'   => array('team'),
+    'post_type' => array('team'),
     'post_status' => array('publish'),
-    'nopaging'    => true,
-    'order'       => 'DESC',
-    'orderby'     => 'date'
+    'nopaging' => true,
+    'order' => 'DESC',
+    'orderby' => 'date'
 );
-
 $loop['blog'] = array(
-    'post_type'   => array('post'),
+    'post_type' => array('post'),
     'post_status' => array('publish'),
-    'nopaging'    => true,
-    'order'       => 'DESC',
-    'orderby'     => 'date'
+    'nopaging' => true,
+    'order' => 'DESC',
+    'orderby' => 'date'
 );
 
 foreach ($loop as $key => $value)
 {
     ${$key} = new WP_Query($value);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title><?php wp_title('|', true, 'right'); ?></title>
+        <title><?php bloginfo('name'); ?></title>
         <!-- Search Engines -->
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="robots" content="index, follow" />
@@ -41,7 +37,7 @@ foreach ($loop as $key => $value)
         <meta name="keywords" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="" />
-        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <!-- WordPress Head -->
         <?php wp_head(); ?>
     </head>
@@ -71,19 +67,21 @@ foreach ($loop as $key => $value)
         <div id="team">
             <div class="inner">
                 <div class="team-title">
-                    <h2>Team</h2>
+                    <a href="<?php print get_page_by_path('team')->guid; ?>">Team</a>
                 </div>
                 <?php if ($team->have_posts()): ?>
                     <div class="team-members">
+                        <?php $index = 1; ?>
                         <ul>
-                            <?php $index = 1; while ($team->have_posts()): $team->the_post(); ?>
+                            <?php while ($team->have_posts()): $team->the_post(); ?>
                                 <li>
                                     <div class="member-picture"><?php print get_field_object('team_picture'); ?></div>
                                     <div class="member-decsription"><?php print get_field_object('team_resume'); ?></div>
                                     <div class="member-name"><?php $team->the_title(); ?></div>
+                                    <?php $index++; ?>
                                 </li>
-                                <?php if($i % 3 == 0): ?></ul><ul><?php endif; ?>
-                            <?php $index++; endwhile; ?>
+                                <?php if ($i % 3 == 0): ?></ul><ul><?php endif; ?>
+                            <?php endwhile; ?>
                         </ul>
                     </div>
                     <div class="team-pager">
@@ -100,7 +98,7 @@ foreach ($loop as $key => $value)
         <div id="services">
             <div class="inner">
                 <div class="team-title">
-                    <h2>Services</h2>
+                    <a href="<?php print get_page_by_path('services')->guid; ?>">Services</a>
                 </div>
                 <div class="services-text">
                     <?php print get_post(array('name' => 'services'))->post_content; ?>
@@ -110,17 +108,17 @@ foreach ($loop as $key => $value)
         <div id="blog">
             <div class="inner">
                 <div class="blog-title">
-                    <h2>Blog</h2>
+                    <a href="<?php print get_page_by_path('blog')->guid; ?>">Blog</a>
                 </div>
                 <div class="blog-list">
                     <?php if ($blog->have_posts()): ?>
-                    <ul>
-                        <?php while ($blog->have_posts()): $blog->the_post(); ?>
-                        <li>
-                            <?php get_template_part('content', $blog->get_post_format()); ?>
-                        </li>
-                        <?php endwhile; ?>
-                    </ul>
+                        <ul>
+                            <?php while ($blog->have_posts()): $blog->the_post(); ?>
+                                <li>
+                                    <?php get_template_part('content', $blog->get_post_format()); ?>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
                     <?php else: ?>
                         <div class="message">
                             <p>No posts on the Blog section.</p>
