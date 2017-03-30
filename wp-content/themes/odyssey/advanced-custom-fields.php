@@ -158,7 +158,7 @@ if (function_exists("register_field_group"))
                 array(
                     'param'    => 'post_type',
                     'operator' => '==',
-                    'value'    => 'team',
+                    'value'    => 'team-member',
                     'order_no' => 0,
                     'group_no' => 0,
                 ),

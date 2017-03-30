@@ -1,5 +1,4 @@
 <?php
-
 $loop['banner'] = array(
     'post_type' => array('banner'),
     'post_status' => array('publish'),
@@ -9,7 +8,7 @@ $loop['banner'] = array(
 );
 
 $loop['team'] = array(
-    'post_type' => array('team'),
+    'post_type' => array('team-member'),
     'post_status' => array('publish'),
     'nopaging' => true,
     'order' => 'DESC',
@@ -44,7 +43,7 @@ foreach ($loop as $key => $value)
         <!-- WordPress Head -->
         <?php wp_head(); ?>
     </head>
-    <body class="home">
+    <body <?php body_class(); ?>>
         <div class="header">
             <?php get_header(); ?>
         </div>
@@ -74,16 +73,19 @@ foreach ($loop as $key => $value)
                 </div>
                 <?php if ($team->have_posts()): ?>
                     <div class="team-members">
-                        <?php $index = 1; ?>
+                        <?php $index = 0; ?>
                         <ul>
                             <?php while ($team->have_posts()): $team->the_post(); ?>
                                 <li>
-                                    <div class="member-picture"><?php print get_field_object('team_picture'); ?></div>
-                                    <div class="member-decsription"><?php print get_field_object('team_resume'); ?></div>
-                                    <div class="member-name"><?php $team->the_title(); ?></div>
+                                    <div class="member-picture">
+                                        <img src="<?php print get_field('team_picture')['sizes']['post-home']; ?>" />
+                                    </div>
+                                    <div class="member-decsription"><?php print wp_trim_words(get_field('team_resume'), 50); ?></div>
+                                    <div class="member-name"><?php the_title(); ?></div>
+
                                     <?php $index++; ?>
                                 </li>
-                                <?php if ($i % 3 == 0): ?></ul><ul><?php endif; ?>
+                                <?php if ($index % 3 == 0): ?></ul><ul><?php endif; ?>
                             <?php endwhile; ?>
                         </ul>
                     </div>
@@ -118,7 +120,25 @@ foreach ($loop as $key => $value)
                         <ul>
                             <?php while ($blog->have_posts()): $blog->the_post(); ?>
                                 <li>
-                                    <?php get_template_part('content', $blog->get_post_format()); ?>
+                                    <div class="content-image">
+                                        <?php if (has_post_thumbnail()): ?>
+                                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-home'); ?></a>
+                                        <?php else: ?>
+                                            <p>No image.</p>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="content-title">
+                                        <?php the_title(); ?>
+                                    </div>
+                                    <div class="content-meta">
+                                        <span class="date"><i class="icon-calendar"></i> <?php print get_the_date('Y-m-d'); ?></span>
+                                    </div>
+                                    <div class="content-desc">
+                                        <?php print wp_trim_words(get_the_content(), 50); ?>
+                                    </div>
+                                    <div class="content-more">
+                                        <a href="<?php the_permalink(); ?>">More ></a>
+                                    </div>
                                 </li>
                             <?php endwhile; ?>
                         </ul>
