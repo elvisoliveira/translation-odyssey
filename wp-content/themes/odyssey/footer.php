@@ -2,7 +2,7 @@
 <div id="about">
     <dl>
         <dt><a href="<?php print $about->guid; ?>">About</a></dt>
-        <dd><?php print do_shortcode($about->post_content); ?></dd>
+        <dd><?php print wp_trim_words(do_shortcode($about->post_content), 40); ?></dd>
     </dl>
 </div>
 <?php $contact = get_page_by_path('contact'); ?>
