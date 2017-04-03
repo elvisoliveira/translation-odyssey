@@ -1,32 +1,49 @@
+/* Sticky header.
+----------------------------------------------------------------------------- */
 div.header { float: left;width: 100%;z-index: 100;position: relative;}
 
-div.header div.top { float: left; width: 100%; background-color: #221f1b; height: 45px; }
-div.header div.top div.inner ul {height: 45px;}
-div.header div.top div.inner ul.left {float: left;}
-div.header div.top div.inner ul.right {float: right;}
-div.header div.top div.inner ul li { float: left; color: #FFF; list-style: none; height: 45px; line-height: 45px; }
-div.header div.top div.inner ul li a { color: #FFF; font-size: 15px; text-decoration: none; }
-div.header div.top div.inner ul li span { float: left; height: 45px; line-height: 45px; }
-div.header div.top div.inner ul li dl {float: left;}
-div.header div.top div.inner ul li dl dt {float: left;}
-div.header div.top div.inner ul li dl dd { float: left; text-indent: 5px; color: #D3D3D2; }
-div.header div.top div.inner ul li.icon {margin-left: 20px;}
+/* Contextual header and footer.
+----------------------------------------------------------------------------- */
+div.body {float: left; width: 100%;}
+div.foot {float: left; width: 100%;}
 
+/* Extreme top.
+----------------------------------------------------------------------------- */
+div.header div.top { float: left; width: 100%; background-color: #221f1b; height: 45px; }
+div.header div.top ul {height: 45px;}
+div.header div.top ul li { float: left; color: #FFF; list-style: none; height: 45px; line-height: 45px; }
+div.header div.top ul li a { color: #FFF; font-size: 15px; text-decoration: none; }
+div.header div.top ul li span { float: left; height: 45px; line-height: 45px; }
+div.header div.top ul li dl {float: left;}
+div.header div.top ul li dl dt {float: left;}
+div.header div.top ul li dl dd { float: left; text-indent: 5px; color: #D3D3D2; }
+div.header div.top ul li.icon {margin-left: 20px;}
+
+div.header div.top ul.left {float: left;}
+div.header div.top ul.right {float: right;}
+
+/* Navigation.
+----------------------------------------------------------------------------- */
 div.header div.nav {transition: background-color 0.4s ease;float: left;width: 100%;height: 80px;background-color: #3b3b3b;}
+div.header div.nav.home {background-color: rgba(255, 255, 255, 0.3);z-index: 100;position: absolute;top: 45px;}
 div.header div.nav.home.sticky-header {position: fixed;top: 0;background-color: #333232;}
 div.header div.nav.home.admin-sticky-header {position: fixed;top: 32px;background-color: #333232;}
-div.header div.nav.home {background-color: rgba(255, 255, 255, 0.3);z-index: 100;position: absolute;top: 45px;}
+
 div.header div.nav div.home-logo {float: left;font-size: 30px;color: #fff;height: 80px;line-height: 80px;}
 div.header div.nav div.home-logo a {text-decoration: none;color: #fff;}
+
 div.header div.nav div.home-menu {}
 div.header div.nav div.home-menu ul {float: right;}
 div.header div.nav div.home-menu ul.left {float: left;}
 div.header div.nav div.home-menu ul.right {float: right;}
 div.header div.nav div.home-menu ul li { float: left; color: #FFF; list-style: none; height: 80px; line-height: 45px; margin-left: 40px;}
 div.header div.nav div.home-menu ul li a { color: #FFF; font-size: 15px; text-decoration: none; line-height: 80px;text-transform: capitalize;}
+
 body.home div.header div.nav div.home-logo {display: none;}
 body.home div.header div.nav.sticky-header div.home-logo {display: block;}
 
+/* Home: Banner block.
+----------------------------------------------------------------------------- */
 div.banner { float: left; width: 100%; position: relative; z-index: 10;height: 450px;overflow: hidden;background-color: #D3D3D2;}
 div.banner div.info { width: 1022px; margin-left: -511px; position: relative; left: 50%; z-index: 10; }
 div.banner div.info h1 {font-weight: 900;font-size: 68px;color: white;text-decoration: none;float: left;width: 100%;text-align: center;line-height: 68px;margin-top: 185px;}
@@ -35,13 +52,34 @@ div.banner div.images { position: absolute; top: 0; left: 0; width: 100%; overfl
 div.banner div.images ul { float: left; width: 100%; }
 div.banner div.images ul li { float: left; width: 100%; height: 450px; filter: blur(1px) grayscale(70%); background-repeat: no-repeat;background-position: center;background-size: cover;}
 
+/* Home: Blog block.
+----------------------------------------------------------------------------- */
+div#blog {float: left;width: 100%;padding: 50px 0;}
+div#blog div.blog-title {float: left;width: 100%;margin-bottom: 30px;}
+div#blog div.blog-title a  {float: left;text-transform: capitalize;font-weight: 700;font-size: 35px;color: #333232;border-bottom: 3px solid #333232;width: 40px;text-decoration: none;line-height: 50px;}
+div#blog div.blog-list {float: left;width: 100%;}
+div#blog div.blog-list ul {}
+div#blog div.blog-list ul li {float: left;list-style: none;width: 300px;}
+div#blog div.blog-list ul li a {text-decoration: none;color: #333232;float: left;}
+div#blog div.blog-list ul li div.content-image {float: left;width: 100%;height: 225px;background-color: #F3F3F3;overflow: hidden;}
+div#blog div.blog-list ul li div.content-image p {float: left;width: 258px;height: 182px;line-height: 200px;text-align: center;font-size: 13px;padding: 10px;border: 1px solid #D3D3D2;margin: 10px;}
+div#blog div.blog-list ul li div.content-title {float: left;width: 100%;margin-top: 10px;margin-bottom: 10px;font-size: 21px;color: #333232;}
+div#blog div.blog-list ul li div.content-title h3 {font-size: 15px;color: #333232;}
+div#blog div.blog-list ul li div.content-meta {float: left;width: 100%;margin-bottom: 10px;color: #D3D3D2;line-height: 20px;font-size: 13px;}
+div#blog div.blog-list ul li div.content-meta span {float: left;margin-right: 15px;}
+div#blog div.blog-list ul li div.content-meta span i {float: left;font-size: 15px;line-height: 20px;margin-right: 5px;}
+div#blog div.blog-list ul li div.content-desc {float: left;width: 100%;color: #8B8A8A;font-size: 14px;line-height: 22px;}
+div#blog div.blog-list ul li div.content-more {float: left;width: 100%;color: #8B8A8A;font-size: 15px;line-height: 22px;margin-top: 10px;font-weight: 700;}
+
+/* Home: Team block.
+----------------------------------------------------------------------------- */
 div#team {float: left;width: 100%;padding: 50px 0;}
 div#team div.team-title {float: left;width: 100%;margin-bottom: 30px;}
 div#team div.team-title a {float: left;text-transform: capitalize;font-weight: 700;font-size: 35px;color: #333232;border-bottom: 3px solid #333232;width: 40px;text-decoration: none;line-height: 50px;}
 div#team div.team-members {float: left;width: 100%;position: relative;z-index: 20;margin-top: 30px;min-height: 300px;}
 div#team div.team-members ul {float: left;width: 100%;}
 div#team div.team-members ul li {list-style: none;float: left;width: 300px;}
-div#team div.team-members ul li:nth-child(3n-1) {margin: 0 60px;}
+div#team div.team-members ul li:nth-child(3n-1) {margin: 0 5%;}
 div#team div.team-members ul li div {text-transform: none;}
 div#team div.team-members ul li div.member-name {font-size: 19px;margin-top: 22px;color: #333232;}
 div#team div.team-members ul li div.member-picture {display: none; }
@@ -51,59 +89,76 @@ div#team div.team-pager a {color: #000;text-decoration: none;font-size: 30px;}
 div#team div.team-pager a.next {float: right;}
 div#team div.team-pager a.prev {float: left;}
 
+@media screen and (max-width: 1050px) and (min-width: 750px) 
+{
+    div#team div.team-members {margin-top:0;}
+    div#team div.team-members ul li {width: 30%;}
+    div#team div.team-members ul li:nth-child(3n-1) {margin: 0 30px;}
+    div#team div.team-members ul li div.member-name {font-size: 18px;}
+    div#team div.team-members ul li div.member-decsription {font-size: 14px;line-height: 18px;}
+}
+
+/* Home: Services block.
+----------------------------------------------------------------------------- */
 div#services {float: left;width: 100%;height: 500px;background-color: #F3F3F3;background-image: url("../images/worldmap.svg");background-repeat: no-repeat;background-position: right -400px center;margin-top: 20px;}
 div#services div.inner {}
 div#services div.inner div.team-title {float: left;width: 100%;margin-top: 50px;}
 div#services div.inner div.team-title a {float: left; text-transform: capitalize; font-weight: 700; font-size: 35px; color: #333232;border-bottom: 3px solid #333232;width: 40px;text-decoration: none;line-height: 50px;}
 div#services div.inner div.services-text {float: left;width: 400px;height: 300px;margin-top: 30px;text-transform: none;overflow: hidden;font-size: 15px;color: #8B8A8A;line-height: 23px;}
 
+/* Contextual footer.
+----------------------------------------------------------------------------- */
 div.footer {float: left;width: 100%;background-color: #221f1b;padding: 30px 0;margin-top: 30px;}
 
-div.footer div#contact {float: left;width: 300px;color: #D3D3D2;}
-div.footer div#contact dl {float: left;width: 100%;}
-div.footer div#contact dl dt {float: left;margin-bottom: 15px;width: 100%;}
-div.footer div#contact dl dt a {float: left;font-size: 30px;line-height: 35px;text-decoration: none;color: #D3D3D2;}
-div.footer div#contact dl dd {float: left;width: 100%;}
-div.footer div#contact dl dd > div {float: left;width: 100%;}
-div.footer div#contact dl dd > div form  {float: left;width: 100%;}
-div.footer div#contact dl dd > div form > div {float: left;width: 100%;position: relative;margin-bottom: 15px;}
-div.footer div#contact dl dd > div form > div label {float: left;position: absolute;left: 10px;top: 12px;font-size: 14px;z-index: 20;font-weight: unset;}
-div.footer div#contact dl dd > div form > div label span {display:none;}
-div.footer div#contact dl dd > div form > div input {float: left;width: calc(100% - 23px);border: 1px solid #D3D3D2;height: 40px;z-index: 10;position: relative;color: #D3D3D2;padding: 0 10px;background-color: #221f1b;}
-div.footer div#contact dl dd > div form > div input:focus  {z-index: 30; }
-div.footer div#contact dl dd > div form > div textarea {resize:none;float: left;width: calc(100% - 2px);background-color: #221f1b;border: 1px solid #D3D3D2;height: 70px;}
-div.footer div#contact dl dd > div form > p  {}
-div.footer div#contact dl dd > div form > p input {background-color: #D2D2D1;border: 0;width: 100px;height: 35px;font-size: 14px;color: #333232;}
-div.footer div#about {float: left;width: 300px;margin-right: 60px;color: #d3d3d2;}
-div.footer div#about dl {float: left;width: 100%;}
-div.footer div#about dl dt {float: left;margin-bottom: 15px;width: 100%;}
-div.footer div#about dl dt a {float: left;font-size: 30px;line-height: 35px;text-decoration: none;color: #D3D3D2;}
-div.footer div#about dl dd {float: left;width: 100%;font-size: 15px;height: 200px;overflow: hidden;line-height: 26px;}
+/* Footer: Contact block.
+----------------------------------------------------------------------------- */
+div#contact {float: left;width: 300px;color: #D3D3D2;}
+div#contact dl {float: left;width: 100%;}
+div#contact dl dt {float: left;margin-bottom: 15px;width: 100%;}
+div#contact dl dt a {float: left;font-size: 30px;line-height: 35px;text-decoration: none;color: #D3D3D2;}
+div#contact dl dd {float: left;width: 100%;}
+div#contact dl dd > div {float: left;width: 100%;}
+div#contact dl dd > div form  {float: left;width: 100%;}
+div#contact dl dd > div form > div {float: left;width: 100%;position: relative;margin-bottom: 15px;}
+div#contact dl dd > div form > div label {float: left;position: absolute;left: 10px;top: 12px;font-size: 14px;z-index: 20;font-weight: normal;}
+div#contact dl dd > div form > div label span {display:none;}
+div#contact dl dd > div form > div input {float: left;width: calc(100% - 23px);border: 1px solid #D3D3D2;height: 40px;z-index: 10;position: relative;color: #D3D3D2;padding: 0 10px;background-color: #221f1b;}
+div#contact dl dd > div form > div input:focus  {z-index: 30; }
+div#contact dl dd > div form > div textarea {resize:none;float: left;width: calc(100% - 2px);background-color: #221f1b;border: 1px solid #D3D3D2;height: 70px;}
+div#contact dl dd > div form > p  {}
+div#contact dl dd > div form > p input {background-color: #D2D2D1;border: 0;width: 100px;height: 35px;font-size: 14px;color: #333232;}
 
-div.footer div#facebook {float: right;width: 300px;background-color: #39599B;height: 270px;text-align: center;line-height: 270px;}
+@media screen and (max-width: 1050px) and (min-width: 750px) 
+{
+    div#contact {width: 30%;}
+}
 
-div.body {float: left; width: 100%;}
-div.foot {float: left; width: 100%;}
+/* Footer: About block.
+----------------------------------------------------------------------------- */
+div#about {float: left;width: 300px;margin-right: 60px;color: #d3d3d2;}
+div#about dl {float: left;width: 100%;}
+div#about dl dt {float: left;margin-bottom: 15px;width: 100%;}
+div#about dl dt a {float: left;font-size: 30px;line-height: 35px;text-decoration: none;color: #D3D3D2;}
+div#about dl dd {float: left;width: 100%;font-size: 15px;height: 200px;overflow: hidden;line-height: 26px;}
 
-div#blog {float: left;width: 100%;padding: 50px 0;}
-div#blog div.inner {}
-div#blog div.inner div.blog-title {float: left;width: 100%;margin-bottom: 30px;}
-div#blog div.inner div.blog-title a  {float: left;text-transform: capitalize;font-weight: 700;font-size: 35px;color: #333232;border-bottom: 3px solid #333232;width: 40px;text-decoration: none;line-height: 50px;}
-div#blog div.inner div.blog-list {float: left;width: 100%;}
-div#blog div.inner div.blog-list ul {}
-div#blog div.inner div.blog-list ul li {float: left;list-style: none;width: 300px;}
-div#blog div.inner div.blog-list ul li a {text-decoration: none;color: #333232;float: left;}
-div#blog div.inner div.blog-list ul li div.content-image {float: left;width: 100%;height: 225px;background-color: #F3F3F3;overflow: hidden;}
-div#blog div.inner div.blog-list ul li div.content-image p {float: left;width: 258px;height: 182px;line-height: 200px;text-align: center;font-size: 13px;padding: 10px;border: 1px solid #D3D3D2;margin: 10px;}
-div#blog div.inner div.blog-list ul li div.content-title {float: left;width: 100%;margin-top: 10px;margin-bottom: 10px;font-size: 21px;color: #333232;}
-div#blog div.inner div.blog-list ul li div.content-title h3 {font-size: 15px;color: #333232;}
-div#blog div.inner div.blog-list ul li div.content-meta {float: left;width: 100%;margin-bottom: 10px;color: #D3D3D2;line-height: 20px;font-size: 13px;}
-div#blog div.inner div.blog-list ul li div.content-meta span {float: left;margin-right: 15px;}
-div#blog div.inner div.blog-list ul li div.content-meta span i {float: left;font-size: 15px;line-height: 20px;margin-right: 5px;}
-div#blog div.inner div.blog-list ul li div.content-desc {float: left;width: 100%;color: #8B8A8A;font-size: 14px;line-height: 22px;}
-div#blog div.inner div.blog-list ul li div.content-more {float: left;width: 100%;color: #8B8A8A;font-size: 15px;line-height: 22px;margin-top: 10px;font-weight: 700;}
+@media screen and (max-width: 1050px) and (min-width: 750px) 
+{
+    div#about {width: 30%;margin-right: 5%;}
+}
 
+/* Footer: Facebook block.
+----------------------------------------------------------------------------- */
+div#facebook {float: right;width: 300px;background-color: #39599B;height: 270px;text-align: center;line-height: 270px;}
+
+@media screen and (max-width: 1050px) and (min-width: 750px) 
+{
+    div#facebook {width: 30%;}
+}
+
+/* Internal: Default setup.
+----------------------------------------------------------------------------- */
 div.page {float: left;width: 100%;padding-top: 25px;}
 div.page div.content-title {font-size: 25px;color: #262932;font-weight: 700;float: left;width: 100%;margin-bottom: 15px;line-height: 50px;position: relative;}
 div.page div.content-title hr {position: absolute;width: 30px;bottom: 0;border: 0;height: 3px;background-color: #d2d3d3;}
+
 div.page div.content-desc {float: left;width: 100%;font-size: 13px;color: #8b8a8a;line-height: 20px;}

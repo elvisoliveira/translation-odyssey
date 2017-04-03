@@ -1,11 +1,23 @@
+/* Google fonts.
+----------------------------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
 
+/* Global setup.
+----------------------------------------------------------------------------- */
 * { margin: 0; padding: 0; font-family: 'Raleway', sans-serif; }
 
+/* Contextual setup.
+----------------------------------------------------------------------------- */
 div.inner { width: 1022px; margin-left: -511px; position: relative; left: 50%;  font-size: 13px; color: #D3D3D2;}
-
 div.message {float: left;width: calc(100% - 20px);border: 1px solid #CCC;padding: 10px;border-radius: 2px;text-align: center;text-transform: none;font-size: 14px;height: 320px;line-height: 320px;}
 
+@media screen and (max-width: 1050px) and (min-width: 750px) 
+{
+    div.inner {width: 94%;margin-left: 0;left: 3%;}
+}
+
+/* Meta setup.
+----------------------------------------------------------------------------- */
 :invalid { box-shadow: none; }
 :-moz-submit-invalid { box-shadow: none; }
 :-moz-ui-invalid { box-shadow: none; }
