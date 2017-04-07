@@ -72,6 +72,14 @@ div#blog div.blog-list ul li div.content-meta span i {float: left;font-size: 15p
 div#blog div.blog-list ul li div.content-desc {float: left;width: 100%;color: #8B8A8A;font-size: 14px;line-height: 22px;}
 div#blog div.blog-list ul li div.content-more {float: left;width: 100%;color: #8B8A8A;font-size: 15px;line-height: 22px;margin-top: 10px;font-weight: 700;}
 
+@media screen and (max-width: 1050px) and (min-width: 750px) 
+{
+    div#blog div.blog-list ul li {width: 30%;}
+    div#blog div.blog-list ul li:nth-child(2) { margin: 0 5%;}
+    div#blog div.blog-list ul li div.content-image { height: auto; }
+    div#blog div.blog-list ul li div.content-image p { width: 80%; padding: 5%;margin: 5%;line-height: 13px;height: auto;}
+}
+
 /* Home: Team block.
 ----------------------------------------------------------------------------- */
 div#team {float: left;width: 100%;padding: 50px 0;}
@@ -96,7 +104,7 @@ div#team div.team-pager a.prev {float: left;}
     div#team div.team-members ul li {width: 30%;}
     div#team div.team-members ul li:nth-child(3n-1) {margin: 0 30px;}
     div#team div.team-members ul li div.member-name {font-size: 18px;}
-    div#team div.team-members ul li div.member-decsription {font-size: 14px;line-height: 18px;}
+    div#team div.team-members ul li div.member-decsription {font-size: 14px;line-height: 19px;}
 }
 
 /* Home: Services block.
