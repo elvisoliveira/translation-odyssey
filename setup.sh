@@ -1,5 +1,8 @@
 #!/bin/bash
-# docker exec -i -t odyssey-webserver /bin/sh -c "/var/www/odyssey/setup.sh"
+# docker exec -i -t odyssey-webserver /bin/chmod +x "/var/www/odyssey/setup.sh" && \
+#                                     /bin/sh -c "/var/www/odyssey/setup.sh"
+#
+# Don't forget to remap your hosts file to: translation-odyssey
 ################################################################################
 
 # Node.js resources
