@@ -13,7 +13,7 @@ while [[ -z "$npm" ]]; do
 done
 
 if [ "$npm" == "y" ]; then
-  (cd ./wp-content/themes/odyssey/node && npm run assets)
+  (cd ./wp-content/themes/odyssey/node && npm install && npm run assets)
 fi
 
 # WordPress Install ############################################################
@@ -170,7 +170,7 @@ if [ "$img" == "y" ]; then
         WP_IMAG="${WP_TEMP}/${WP_INDX}.jpg"
 
         # Download 5 ramdom images 1000x1000
-        curl -o ${WP_IMAG} 'https://unsplash.it/1000/1000/?random'
+        wget -O ${WP_IMAG} 'https://unsplash.it/1000/1000/?random'
 
         # Attach on WordPress
         WP_ATTC=$(wp media import ${WP_IMAG} --porcelain --allow-root)

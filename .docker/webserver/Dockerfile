@@ -7,7 +7,7 @@ WORKDIR /var/www/odyssey
 # Enviroment Dependencies:
 # Composer requires zip and git. (https://getcomposer.org/doc/00-intro.md#system-requirements)
 RUN apt-get update && \
-    apt-get install git unzip npm mysql-client libpng-dev libjpeg-dev -y && \
+    apt-get install wget git unzip npm mariadb-client libpng-dev libjpeg-dev -y && \
     docker-php-ext-install mysqli
 
 # Composer
@@ -19,15 +19,16 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x /usr/local/bin/wp
 
 # PHP Extensions
-RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
+RUN docker-php-ext-configure gd --with-jpeg
 RUN docker-php-ext-install mysqli gd
 
-# Some required Node.js packages expects 
+# Some required Node.js packages expects
 # nodejs command to be node.
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+# @TODO: Check if this is still required
+# RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-# Node.js 
-RUN npm install -g bower grunt grunt-cli
+# Node.js
+RUN npm install -g bower grunt grunt-cli npm@latest --loglevel=error
 
 # PHP / Apache Conf.
 COPY ./.docker/webserver/php.ini ${PHP_INI_DIR}/php.ini
